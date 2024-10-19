@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -31,12 +32,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
     buildFeatures {
         compose = true
     }
@@ -48,10 +47,14 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
 
 dependencies {
 
+    implementation(libs.core.ktx)
     val nav_version = "2.7.7"
     val compose_version = "1.6.0-alpha08"
     val room = "2.6.0"
