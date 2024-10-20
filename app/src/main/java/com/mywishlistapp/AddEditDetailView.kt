@@ -65,7 +65,7 @@ fun AddEditDetailView(
         scaffoldState = scaffoldState)
         {
         Column(modifier = Modifier
-            .padding(it)
+            .padding(it).padding(15.dp)
             .wrapContentSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -97,6 +97,7 @@ fun AddEditDetailView(
                                 description = viewModel.wishDescriptionState.trim()
                             )
                         )
+                        snackMessage.value ="Wish has been updated"
                     }
                     else{
                         //TODO AddWish
@@ -109,10 +110,14 @@ fun AddEditDetailView(
                 }
                 else{
                     snackMessage.value = "Enter Fields to create a wish"
+                    scope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
+                    }
+                    return@Button
                 }
 
                 scope.launch {
-                    scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
+                   scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
                     navController.navigateUp()
                 }
 

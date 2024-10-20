@@ -55,20 +55,25 @@ android {
 dependencies {
 
     implementation(libs.core.ktx)
-    val nav_version = "2.7.7"
-    val compose_version = "1.6.0-alpha08"
-    val room = "2.6.0"
+    //val nav_version = "2.7.7"
+    //val compose_version = "1.6.0-alpha08"
+    //val room = "2.6.0"
 
-    implementation("androidx.room:room-runtime:$room")
-    implementation("androidx.room:room-ktx:$room")
-    kapt("androidx.room:room-compiler:$room")
+    //implementation("androidx.room:room-runtime:$room")
+    //implementation("androidx.room:room-ktx:$room")
+   // kapt("androidx.room:room-compiler:$room")
 
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    //implementation("androidx.navigation:navigation-compose:$nav_version")
    // implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
+    //implementation("androidx.compose.material:material:$compose_version")
    // implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
 
 
+    implementation(libs.room)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.compose.material)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
